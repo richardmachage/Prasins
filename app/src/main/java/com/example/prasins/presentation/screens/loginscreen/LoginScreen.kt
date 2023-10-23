@@ -1,10 +1,14 @@
 package com.example.prasins.presentation.screens.loginscreen
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
@@ -28,14 +32,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.prasins.R
+import com.example.prasins.R.mipmap.logo_prasins
 import com.example.prasins.presentation.navigation.NavRoutes
 
 @Composable
@@ -45,10 +55,19 @@ fun LogInScreen(navHostController: NavHostController) {
         color = MaterialTheme.colorScheme.surface
     ) {
         Column(
-            //   modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
+            Image(
+                painter= painterResource(id = R.mipmap.img),
+                contentDescription= "Prasins_logo",
+                modifier=Modifier
+                    //.size(128.dp)
+                    .clip(CircleShape)
+                   // .border(10.dp, color = MaterialTheme.colorScheme.outline, CircleShape)
+            )
 
             EditText( //Email Input
                 label = "Enter your Email",
@@ -210,4 +229,10 @@ fun PasswordEditText(
 
     )
 
+}
+
+@Preview
+@Composable
+fun PreviewLogIn(){
+    LogInScreen(navHostController = rememberNavController())
 }

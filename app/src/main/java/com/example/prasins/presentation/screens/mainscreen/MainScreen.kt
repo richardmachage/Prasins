@@ -33,7 +33,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.prasins.presentation.navigation.NavRoutes
 import com.example.prasins.presentation.screens.mainscreen.AccountScreen.AccountScreen
 import com.example.prasins.presentation.screens.mainscreen.homescreen.HomeScreen
-import com.example.prasins.presentation.screens.mainscreen.payment.PaymentScreen
+import com.example.prasins.presentation.screens.mainscreen.paymentscreen.PaymentScreen
 
 data class BottomNavigationItem(
     val title: String,

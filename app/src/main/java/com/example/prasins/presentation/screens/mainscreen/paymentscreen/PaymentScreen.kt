@@ -1,4 +1,4 @@
-package com.example.prasins.presentation.screens.mainscreen.payment
+package com.example.prasins.presentation.screens.mainscreen.paymentscreen
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme

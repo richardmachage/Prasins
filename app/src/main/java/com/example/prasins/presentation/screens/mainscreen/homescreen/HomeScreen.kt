@@ -45,7 +45,33 @@ fun HomeScreen() {
             SwitchCard(modifier = Modifier.fillMaxWidth())
             MyTemperatureCard(modifier = Modifier.fillMaxWidth())
             MoistureCard(modifier = Modifier.fillMaxWidth())
+            ProductCard(modifier = Modifier.fillMaxWidth())
         }
+    }
+}
+
+@Composable
+fun ProductCard(modifier:Modifier){
+    Card(
+        modifier=modifier
+        .padding(16.dp),
+        elevation= CardDefaults.cardElevation(10.dp),
+        shape = MaterialTheme.shapes.medium){
+
+        Text(
+            modifier=Modifier.padding(10.dp),
+            text="Product Drying",
+            style= MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.primary
+
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(
+            modifier=Modifier.padding(10.dp),
+            style = MaterialTheme.typography.bodyLarge,
+            text="Maindi"
+        )
     }
 }
 
@@ -58,7 +84,10 @@ fun SwitchCard(modifier: Modifier){
         Text(
             modifier=Modifier.padding(10.dp),
             text = "Drier Status",
-            style = MaterialTheme.typography.titleLarge)
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.primary
+
+        )
         Spacer(modifier = Modifier.height(8.dp))
 
         ToggleButton(name = "Power Control")
@@ -76,7 +105,10 @@ fun MoistureCard(modifier: Modifier){
         Text(
             modifier=Modifier.padding(10.dp),
             text = "Moisture Reading",
-            style = MaterialTheme.typography.titleLarge)
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.primary
+
+        )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             modifier=Modifier.padding(10.dp),
@@ -99,7 +131,9 @@ fun MyTemperatureCard(
         Text(
             modifier = Modifier.padding(10.dp),
             text = "Temperature",
-            style = MaterialTheme.typography.titleLarge
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.primary
+
         )
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -152,10 +186,4 @@ fun ToggleButton(
             checked = isChecked,
             onCheckedChange = { state -> isChecked = state })
     }
-}
-
-@Preview(showSystemUi = true)
-@Composable
-fun MyHomePreview() {
-    HomeScreen()
 }
