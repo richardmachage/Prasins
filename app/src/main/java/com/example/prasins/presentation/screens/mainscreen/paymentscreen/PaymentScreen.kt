@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 fun PaymentScreen(){
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.surface
+        color = MaterialTheme.colorScheme.secondaryContainer
     ) {
         Text(text = "Payment Screen")
     }

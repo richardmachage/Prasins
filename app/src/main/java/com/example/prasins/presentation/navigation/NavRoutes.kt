@@ -7,4 +7,5 @@ sealed class NavRoutes(val route:String){
     object MainScreen : NavRoutes("main_screen")
     object PaymentScreen : NavRoutes("payment_screen")
     object AccountScreen : NavRoutes("account_screen")
+    object HistoryScreen :NavRoutes("history_screen")
 }

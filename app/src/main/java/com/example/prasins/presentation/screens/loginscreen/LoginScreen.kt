@@ -52,7 +52,7 @@ import com.example.prasins.presentation.navigation.NavRoutes
 fun LogInScreen(navHostController: NavHostController) {
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.surface
+        color = MaterialTheme.colorScheme.secondaryContainer
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),

@@ -2,11 +2,14 @@ package com.example.prasins.presentation.screens.mainscreen
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Payment
 import androidx.compose.material.icons.outlined.AccountBox
+import androidx.compose.material.icons.outlined.History
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Payment
 import androidx.compose.material3.Badge
@@ -32,6 +35,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.prasins.presentation.navigation.NavRoutes
 import com.example.prasins.presentation.screens.mainscreen.AccountScreen.AccountScreen
+import com.example.prasins.presentation.screens.mainscreen.historyscreen.HistoryScreen
 import com.example.prasins.presentation.screens.mainscreen.homescreen.HomeScreen
 import com.example.prasins.presentation.screens.mainscreen.paymentscreen.PaymentScreen
 
@@ -52,19 +56,21 @@ fun MainScreen() {
     var navHostController = rememberNavController()
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background
+        color = MaterialTheme.colorScheme.surfaceTint
     ) {
         Scaffold(
+            modifier= Modifier.fillMaxSize(),
             bottomBar = {
                 MyBottomNavigationBar(navItems = setNavItems(), navHostController)
             }
-        ) {
+        ) { paddingValues->
            NavHost(
                navController = navHostController,
                startDestination = NavRoutes.HomeScreen.route){
-               composable(NavRoutes.HomeScreen.route){ HomeScreen()}
+               composable(NavRoutes.HomeScreen.route){ HomeScreen(modifier = Modifier.padding(paddingValues))}
                composable(NavRoutes.PaymentScreen.route){ PaymentScreen()}
                composable(NavRoutes.AccountScreen.route){ AccountScreen() }
+               composable(NavRoutes.HistoryScreen.route){ HistoryScreen()}
            }
         }
     }
@@ -85,7 +91,7 @@ fun MyBottomNavigationBar(navItems: List<BottomNavigationItem>, navController: N
                     when (item.title) {
                         "Home" -> navController.navigate(NavRoutes.HomeScreen.route)
                         "Payments" -> navController.navigate(NavRoutes.PaymentScreen.route)
-                        "Account" -> navController.navigate(NavRoutes.AccountScreen.route)
+                        "History" -> navController.navigate(NavRoutes.HistoryScreen.route)
                     }
                     //TODO("Add Navigation code here as well")
 
@@ -135,9 +141,9 @@ fun setNavItems(): List<BottomNavigationItem> {
             hasNews = false,
         ),
         BottomNavigationItem(
-            title = "Account",
-            selectedIcon = Icons.Filled.AccountBox,
-            unselectedIcon = Icons.Outlined.AccountBox,
+            title = "History",
+            selectedIcon = Icons.Filled.History,
+            unselectedIcon = Icons.Outlined.History,
             hasNews = false,
         ),
     )

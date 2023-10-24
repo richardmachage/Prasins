@@ -30,7 +30,7 @@ fun SignupScreen(navHostController: NavHostController){
     //var navHostController = rememberNavController()
     Surface(
         modifier=Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.surface
+        color = MaterialTheme.colorScheme.secondaryContainer
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             IconButton(onClick = { /*TODO*/
